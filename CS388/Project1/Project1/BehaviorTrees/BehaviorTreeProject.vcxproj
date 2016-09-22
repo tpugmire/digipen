@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Profile|Win32">
+      <Configuration>Profile</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AEEBC1C1-AD79-4733-AC4A-F1F6B40C4F2C}</ProjectGuid>
+    <RootNamespace>StateMachineProject</RootNamespace>
+    <ProjectName>BehaviorTrees</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IncludePath>$(ProjectDir)/Source;Source/ImGui;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IncludePath>$(ProjectDir)/Source;Source/ImGui;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <GenerateManifest>false</GenerateManifest>
+    <IncludePath>$(ProjectDir)/Source;Source/ImGui;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\INCLUDE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4995;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dxerr.lib;dxguid.lib;d3dx9d.lib;d3dx10d.lib;d3d9.lib;comctl32.lib;winmm.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)\LIB\X86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\INCLUDE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Stdafx.h</PrecompiledHeaderFile>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dxerr.lib;dxguid.lib;d3dx9.lib;d3dx10.lib;d3d9.lib;comctl32.lib;winmm.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)\LIB\X86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)\INCLUDE;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dxerr.lib;dxguid.lib;d3dx9.lib;d3dx10.lib;d3d9.lib;comctl32.lib;winmm.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)\LIB\X86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\AllocHierarchy.cpp" />
+    <ClCompile Include="Source\AnimationInstance.cpp" />
+    <ClCompile Include="Source\BehaviorTreeEditor.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\BehaviorTrees\AgentBehaviors.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\AgentBTData.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\BehaviorTrees.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\CustomData\AgentAbstractData.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\CustomData\NodeAbstractData.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\CustomData\TinyCustomData.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\NodeData.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\BehaviorNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\CompositeNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\ControlFlowNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\ControlFlow\C_ParallelSequencer.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\ControlFlow\C_RandomSelector.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\ControlFlow\C_Selector.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\ControlFlow\C_Sequencer.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\DecoratorNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\Decorator\D_Delay.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\Decorator\D_Inverter.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\InterrupterNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\LeafNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\Leaf\L_CheckMouseClick.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\Leaf\L_Idle.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\Leaf\L_MoveToFurthestTarget.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\Leaf\L_MoveToMouseTarget.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\Leaf\L_MoveToRandomTarget.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\ParallelNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\Nodes\RepeaterNode.cpp" />
+    <ClCompile Include="Source\BehaviorTrees\TreeLogic.cpp" />
+    <ClCompile Include="Source\body.cpp" />
+    <ClCompile Include="Source\database.cpp" />
+    <ClCompile Include="Source\debuglog.cpp" />
+    <ClCompile Include="Source\DXUT\DXUT.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\DXUT\DXUTcamera.cpp" />
+    <ClCompile Include="Source\DXUT\DXUTenum.cpp" />
+    <ClCompile Include="Source\DXUT\DXUTgui.cpp" />
+    <ClCompile Include="Source\DXUT\DXUTmisc.cpp" />
+    <ClCompile Include="Source\DXUT\DXUTres.cpp" />
+    <ClCompile Include="Source\DXUT\DXUTsettingsdlg.cpp" />
+    <ClCompile Include="Source\DXUT\SDKmisc.cpp" />
+    <ClCompile Include="Source\DXUT\SDKsound.cpp" />
+    <ClCompile Include="Source\DXUT\SDKwavefile.cpp" />
+    <ClCompile Include="Source\example.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\gameobject.cpp" />
+    <ClCompile Include="Source\GuiWindow.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_draw.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\ImGui\imgui_impl_dx9.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\ISystem.cpp" />
+    <ClCompile Include="Source\movement.cpp" />
+    <ClCompile Include="Source\msg.cpp" />
+    <ClCompile Include="Source\msgroute.cpp" />
+    <ClCompile Include="Source\MultiAnimation.cpp" />
+    <ClCompile Include="Source\MultiAnimationLib.cpp" />
+    <ClCompile Include="Source\MyAssert.cpp" />
+    <ClCompile Include="Source\Random.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Source\statemch.cpp" />
+    <ClCompile Include="Source\Stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">Stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="Source\Clock.cpp" />
+    <ClCompile Include="Source\Tiny.cpp" />
+    <ClCompile Include="Source\UnitTests\unittest1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest2a.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest2b.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest2c.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest3a.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest3b.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest4.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest5.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\UnitTests\unittest6.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Source\world.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\AIReasoner.h" />
+    <ClInclude Include="Source\BehaviorTrees\AgentBehaviors.h" />
+    <ClInclude Include="Source\BehaviorTrees\AgentBTData.h" />
+    <ClInclude Include="Source\BehaviorTrees\BehaviorTrees.h" />
+    <ClInclude Include="Source\BehaviorTrees\BehaviorTreesDef.h" />
+    <ClInclude Include="Source\BehaviorTrees\BehaviorTreesShared.h" />
+    <ClInclude Include="Source\BehaviorTrees\CustomData\AgentAbstractData.h" />
+    <ClInclude Include="Source\BehaviorTrees\CustomData\NodeAbstractData.h" />
+    <ClInclude Include="Source\BehaviorTrees\CustomData\TinyCustomData.h" />
+    <ClInclude Include="Source\BehaviorTrees\NodeData.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\BehaviorNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\CompositeNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\ControlFlowNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\ControlFlow\C_ParallelSequencer.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\ControlFlow\C_RandomSelector.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\ControlFlow\C_Selector.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\ControlFlow\C_Sequencer.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\DecoratorNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\Decorator\D_Delay.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\Decorator\D_Inverter.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\InterrupterNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\LeafNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\Leaf\L_CheckMouseClick.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\Leaf\L_Idle.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\Leaf\L_MoveToFurthestTarget.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\Leaf\L_MoveToMouseTarget.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\Leaf\L_MoveToRandomTarget.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\ParallelNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\Nodes\RepeaterNode.h" />
+    <ClInclude Include="Source\BehaviorTrees\TreeLogic.h" />
+    <ClInclude Include="Source\body.h" />
+    <ClInclude Include="Source\database.h" />
+    <ClInclude Include="Source\debuglog.h" />
+    <ClInclude Include="Source\DXUT\DXUT.h" />
+    <ClInclude Include="Source\DXUT\DXUTcamera.h" />
+    <ClInclude Include="Source\DXUT\DXUTenum.h" />
+    <ClInclude Include="Source\DXUT\DXUTgui.h" />
+    <ClInclude Include="Source\DXUT\DXUTmisc.h" />
+    <ClInclude Include="Source\DXUT\DXUTres.h" />
+    <ClInclude Include="Source\DXUT\DXUTsettingsdlg.h" />
+    <ClInclude Include="Source\DXUT\SDKmisc.h" />
+    <ClInclude Include="Source\DXUT\SDKsound.h" />
+    <ClInclude Include="Source\DXUT\SDKwavefile.h" />
+    <ClInclude Include="Source\example.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\gameobject.h" />
+    <ClInclude Include="Source\global.h" />
+    <ClInclude Include="Source\GUIWindow.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imconfig.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui_impl_dx9.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\imgui_internal.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\stb_rect_pack.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\stb_textedit.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ImGui\stb_truetype.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\ISystem.h" />
+    <ClInclude Include="Source\movement.h" />
+    <ClInclude Include="Source\msg.h" />
+    <ClInclude Include="Source\msgnames.h" />
+    <ClInclude Include="Source\msgroute.h" />
+    <ClInclude Include="Source\MultiAnimation.h" />
+    <ClInclude Include="Source\MyAssert.h" />
+    <ClInclude Include="Source\Random.h" />
+    <ClInclude Include="Source\resource.h" />
+    <ClInclude Include="Source\singleton.h" />
+    <ClInclude Include="Source\statemch.h" />
+    <ClInclude Include="Source\Stdafx.h" />
+    <ClInclude Include="Source\Clock.h" />
+    <ClInclude Include="Source\Tiny.h" />
+    <ClInclude Include="Source\UnitTests\unittest1.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest2a.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest2b.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest2c.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest3a.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest3b.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest4.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest5.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\UnitTests\unittest6.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Source\world.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Source\DXUT\directx.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="MultiAnimation.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MultiAnimation.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="MultiAnimation.fx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BTResources\Nodes.def">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="BTResources\Trees.def">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+    </None>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

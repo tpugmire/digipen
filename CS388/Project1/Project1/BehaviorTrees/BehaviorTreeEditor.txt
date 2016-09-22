@@ -1,0 +1,32 @@
+/******************************************************************************/
+/*!
+\file		BehaviorTreeEditor.exe
+\project	CS380/CS580 AI Framework
+\author		Chi-Hao Kuo
+\summary	Behavior Tree Editor.
+
+Copyright (C) 2016 DigiPen Institute of Technology.
+Reproduction or disclosure of this file or its contents without the prior
+written consent of DigiPen Institute of Technology is prohibited.
+*/
+/******************************************************************************/
+
+How to use:
+
+(Add Node)
+  Drag node from "Node List" to "Behavior Tree"
+
+(Change Node Depth)
+  When node is selected:
+    press right arrow key to increase its depth.
+    press left arrow key to decrease its depth.
+    press up arrow key to swap the node with the one above.
+    press down arrow key to swap the node with the one below.
+    press 'del' key to remove the node.
+
+(Check Tree)
+  Use Validate button. You can select each line at Message box to highlight the node that's
+  not valid.
+
+(Save Tree)
+  Save or Save as... button.

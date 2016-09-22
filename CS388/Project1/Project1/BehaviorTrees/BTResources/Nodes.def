@@ -1,0 +1,13 @@
+REGISTER_CONTROLFLOW(C_Sequencer, "Run All Children Until Failure")
+REGISTER_CONTROLFLOW(C_Selector, "Run All Children Until Success")
+REGISTER_CONTROLFLOW(C_RandomSelector, "Randomly Pick One Child To Run")
+REGISTER_CONTROLFLOW(C_ParallelSequencer, "Run All Children At The Same Time, Return Success If All Children Success")
+
+REGISTER_DECORATOR(D_Delay, "Suspend Child For 1 To 2 Seconds")
+REGISTER_DECORATOR(D_Inverter, "Invert The Output Of Child")
+
+REGISTER_LEAF(L_CheckMouseClick, "Condition: Check If Mouse Is Clicked")
+REGISTER_LEAF(L_Idle, "Action: Idle For 1 To 2 Seconds")
+REGISTER_LEAF(L_MoveToFurthestTarget, "Action: Move To The Furthest AI Agent")
+REGISTER_LEAF(L_MoveToMouseTarget, "Action: Move To Mouse click Point")
+REGISTER_LEAF(L_MoveToRandomTarget, "Action: Move To A Random Point")
